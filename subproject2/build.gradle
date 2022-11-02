@@ -1,0 +1,7 @@
+task sub2_hello {
+    dependsOn(":subproject1:sub1_hello")
+
+    doLast {
+        println "hello from sub2 hello"
+    }
+}

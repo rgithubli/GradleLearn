@@ -1,0 +1,62 @@
+plugins {
+    id 'java'
+}
+
+configurations {
+    sayHello
+}
+
+task sayHello {
+    println "hi from sayHello outside"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+project.ext.prop1 = "hello from prop1"
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+
+}
+
+task greeting0 {
+    doLast {
+        println "hello from greeting0"
+    }
+    println "hello from greeting0 outside"
+}
+
+
+def map = new HashMap<String, Object>();
+map.put("action", { println "print from action1" })
+
+task greeting {
+    dependsOn greeting0
+
+    doLast {
+        println("hi")
+    }
+}
+
+task (dependsOn: "greeting", "greeting2") {
+    doLast {
+        println "greeting from greeting2"
+    }
+}
+
+task example(group: "experimental",
+        description: "Example task") {
+    doFirst {
+        println "example"
+    }
+}
+
+dependencies {
+
+}

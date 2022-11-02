@@ -1,0 +1,5 @@
+task sub1_hello {
+    doLast {
+        println "hello from sub1 hello"
+    }
+}

@@ -1,0 +1,5 @@
+rootProject.name = 'GradleLearn'
+
+include 'subproject1'
+include 'subproject2'
+
